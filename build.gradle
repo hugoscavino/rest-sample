@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.0'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.candidate.test'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+repositories {
+    mavenCentral()
+}
+
+wrapper {
+    gradleVersion = '7.5.1'
+    distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-bin.zip"
+}
+
+dependencies {
+
+    implementation('org.springframework.boot:spring-boot-starter-validation')
+    implementation('org.springframework.boot:spring-boot-starter-data-jdbc')
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation('org.flywaydb:flyway-core')
+    implementation('org.postgresql:postgresql')
+    implementation 'org.projectlombok:lombok:1.18.28'
+    implementation 'org.jetbrains:annotations:24.0.0'
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.2.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation group: 'org.apache.derby', name: 'derby', version: '10.14.2.0'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

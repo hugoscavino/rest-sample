@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    url: jdbc:derby:memory:unit-testing-jpa;create=true
+    driverClassName: org.apache.derby.jdbc.ClientDriver
+    username: sa
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.DerbyDialect
+        default_schema: product
+        format_sql: true
+        temp:
+          use_jdbc_metadata_defaults: false
+  flyway:
+    enabled: false
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
+  sql:
+    init:
+      mode:
+      continue-on-error: true
+
+logging:
+  level:
+    root: DEBUG
+    org:
+      springframework:
+        boot: ERROR
+        autoconfigure: ERROR
+      hibernate: WARN
+    sql: DEBUG
+
+
+
+

@@ -1,0 +1,22 @@
+
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/product
+    username: postgres
+  jpa:
+    database: PostgreSQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        temp:
+          use_jdbc_metadata_defaults: false
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://localhost:5432/product
+    user: postgres
+    schemas: product
+server:
+  port: 8080
